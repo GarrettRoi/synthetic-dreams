@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Synthetic Dreams — AI NFT Collection</title>
+<meta name="description" content="Synthetic Dreams: 10 unique AI-generated artworks as NFTs on Base Sepolia. 0.01 ETH each.">
+<style>
+  :root { --bg:#0b0e1a; --panel:#141830; --gold:#d4af78; --text:#e8eaf6; --dim:#9aa1c0; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--text); font-family:'Segoe UI',system-ui,sans-serif; min-height:100vh; }
+  header { text-align:center; padding:48px 16px 24px; }
+  header h1 { font-size:2.6rem; letter-spacing:.5px; background:linear-gradient(90deg,#8ab4ff,#d4af78); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  header p { color:var(--dim); margin-top:12px; max-width:640px; margin-inline:auto; line-height:1.6; }
+  .meta { display:flex; gap:18px; justify-content:center; margin-top:18px; flex-wrap:wrap; }
+  .chip { background:var(--panel); border:1px solid #2a2f55; border-radius:999px; padding:8px 16px; font-size:.85rem; color:var(--gold); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; max-width:1100px; margin:36px auto; padding:0 16px; }
+  .card { background:var(--panel); border:1px solid #262b4d; border-radius:16px; overflow:hidden; transition:transform .2s; }
+  .card:hover { transform:translateY(-4px); }
+  .card img { width:100%; display:block; aspect-ratio:1; object-fit:cover; }
+  .card .info { padding:14px 16px 18px; }
+  .card h3 { font-size:1rem; margin-bottom:6px; }
+  .card .traits { color:var(--dim); font-size:.8rem; line-height:1.5; }
+  .buy { display:block; margin-top:10px; text-align:center; background:linear-gradient(90deg,#3b4fd8,#6a3bd8); color:#fff; border:none; border-radius:10px; padding:10px; font-size:.95rem; cursor:pointer; width:100%; }
+  .checkout { max-width:480px; margin:30px auto 10px; padding:0 16px; }
+  .note { color:var(--dim); font-size:.8rem; text-align:center; max-width:760px; margin:20px auto 40px; padding:0 16px; line-height:1.6; }
+  footer { text-align:center; color:#565d85; font-size:.75rem; padding:24px; border-top:1px solid #1c2040; }
+  a { color:var(--gold); }
+</style>
+<script src="https://unpkg.com/@crossmint/client-sdk-vanilla-ui@1.1.64/dist/index.global.js"></script>
+</head>
+<body>
+<header>
+  <h1>Synthetic Dreams</h1>
+  <p>Ten one-of-a-kind AI-generated artworks exploring machine perception — neural cathedrals, latent-space ghosts, and chrome oracles. Minted as ERC-721 NFTs on Base Sepolia.</p>
+  <div class="meta">
+    <span class="chip">10 unique 1/1 pieces</span>
+    <span class="chip">0.01 ETH each</span>
+    <span class="chip">Base Sepolia · ERC-721</span>
+  </div>
+</header>
+
+<div class="checkout">
+  <!-- Crossmint embedded checkout: buy any piece with crypto (or card in test mode) -->
+  <crossmint-payment-element
+    environment="staging"
+    client-id="ck_staging_5TCT9rR6a1hLKBiNoV6ksbb9naG5eDkr3gmKhSyWpnFUxGGGxkDLdcgRDC7v5U37BY4pJGcsu524cVtgDur34sxLSUoBEzav93bKQ2brNCrjaB3BC7txCACCuR1DE8HSGwfeMTJ7EPjsfjAB4v2LbfGEp1TTJwZF1Cbm5xhfu3bQfxJ93UsvogcSMRQQ1VSqtMb9w2qscQspEXkJnGWYdLSE"
+    collection-id="81839f99-a95b-415b-91d6-50154752c8ea"
+    mint-config='{"totalPrice":"0.01","quantity":1}'>
+  </crossmint-payment-element>
+</div>
+
+<main class="grid" id="grid"></main>
+
+<p class="note">
+  Each purchase mints one of the ten pieces to a Crossmint custodial wallet created for you — no crypto wallet needed; you can move it out anytime for free.
+  Artwork is AI-generated (Sana diffusion via Pollinations, fixed seeds); a small generator watermark may appear. Test-net collection: Base Sepolia ETH has no monetary value — this is a functional demo sale.
+</p>
+
+<footer>
+  Synthetic Dreams · ERC-721 · contract <a href="https://sepolia.basescan.org/token/0x4AE539308873F11751435F627238d26DC5423f72" target="_blank" rel="noopener">0x4AE5…3f72</a>
+</footer>
+
+<script>
+const pieces = [
+  ["01","Synaptic Bloom","https://files.catbox.moe/w4hfvo.jpg","glowing neural network blossoming like a flower, synapses as petals, deep violet and electric cyan","Sana @ Pollinations · seed 101"],
+  ["02","Silicon Monk","https://files.catbox.moe/nhles0.jpg","serene humanoid monk of brushed silicon meditating in a server hall, soft blue light","Sana @ Pollinations · seed 202"],
+  ["03","Data Reliquary","https://files.catbox.moe/l1ol7x.jpg","gothic reliquary built from stacked data servers, glowing relics of code, cathedral light","Sana @ Pollinations · seed 303"],
+  ["04","Ghost In The Latent Space","https://files.catbox.moe/qs58qj.jpg","translucent spectral figure drifting through abstract latent-space fog, teal and black","Sana @ Pollinations · seed 404"],
+  ["05","Chrome Oracle","https://files.catbox.moe/2cd49j.jpg","polished chrome head radiating prophetic light, mirrored circuitry face, dark backdrop","Sana @ Pollinations · seed 505"],
+  ["06","Weight Space Garden","https://files.catbox.moe/lbs1av.jpg","surreal garden where neural weights grow like glowing glass flowers on green terraces","Sana @ Pollinations · seed 606"],
+  ["07","Prompt Cathedral","https://files.catbox.moe/ipj1e7.jpg","vast cathedral whose pillars are columns of glowing prompt text, golden dawn light","Sana @ Pollinations · seed 707"],
+  ["08","Last Human Debugger","https://files.catbox.moe/tujq4m.jpg","lone debugger standing before a wall of cascading code, one warm lamp, noir mood","Sana @ Pollinations · seed 808"],
+  ["09","Gradient Descent Desert","https://files.catbox.moe/j2e003.jpg","endless dunes shaped like loss-surface contours under a violet gradient sky","Sana @ Pollinations · seed 909"],
+  ["10","Attention Is All You See","https://files.catbox.moe/hu6w4n.jpg","attention-weight ribbons of light weaving a human silhouette, indigo and gold","Sana @ Pollinations · seed 1010"],
+];
+document.getElementById('grid').innerHTML = pieces.map(([n, t, img, prompt, gen]) => `
+  <div class="card">
+    <img src="${img}" alt="${t}" loading="lazy">
+    <div class="info">
+      <h3>#${n} · ${t}</h3>
+      <div class="traits">${prompt}<br><span style="color:#6d74a0">${gen}</span></div>
+      <div class="traits" style="margin-top:6px"><b style="color:#d4af78">0.01 ETH</b> · mint below</div>
+    </div>
+  </div>`).join('');
+</script>
+</body>
+</html>
